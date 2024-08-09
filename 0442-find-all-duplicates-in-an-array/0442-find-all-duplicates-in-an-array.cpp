@@ -2,20 +2,19 @@ class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
         vector<int> result;
-
-        // Iterate through each number in the array
-        for (int num : nums) {
-            int index = abs(num) - 1;
-
-            // Check if the value at this index is negative (indicating a duplicate)
+        
+        for (int i = 0; i < nums.size(); ++i) {
+            int index = abs(nums[i]) - 1;
+            
+            // If the number at this index is negative, it means the number has been seen before
             if (nums[index] < 0) {
                 result.push_back(index + 1);
             } else {
-                // Negate the value at this index to mark the number as seen
+                // Mark the number as seen by negating the value at that index
                 nums[index] = -nums[index];
             }
         }
-
+        
         return result;
     }
 };
