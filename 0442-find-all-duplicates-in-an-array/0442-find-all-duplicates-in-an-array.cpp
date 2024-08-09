@@ -2,12 +2,12 @@ class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
         vector<int> result;
-        
+
         // Iterate through each number in the array
         for (int num : nums) {
             int index = abs(num) - 1;
-            
-            // Check if the value at this index has been negated (indicating a duplicate)
+
+            // Check if the value at this index is negative (indicating a duplicate)
             if (nums[index] < 0) {
                 result.push_back(index + 1);
             } else {
@@ -15,7 +15,7 @@ public:
                 nums[index] = -nums[index];
             }
         }
-        
+
         return result;
     }
 };
