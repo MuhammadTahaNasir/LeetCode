@@ -1,15 +1,17 @@
 class Solution {
 public:
     string defangIPaddr(string address) {
-        string result;
-        result.reserve(address.size() + 6); // Pre-allocate memory for the final string
+        string defangedAddress;
+        defangedAddress.reserve(address.size() + 6); // Pre-allocate memory
+
         for (char c : address) {
             if (c == '.') {
-                result += "[.]";
+                defangedAddress += "[.]";
             } else {
-                result += c;
+                defangedAddress += c;
             }
         }
-        return result;
+
+        return defangedAddress;
     }
 };
