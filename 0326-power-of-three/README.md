@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/power-of-three">326. Power of Three</a></h2><h3>Easy</h3><hr><p>Given an integer n, return true if it is a power of three.</p>
