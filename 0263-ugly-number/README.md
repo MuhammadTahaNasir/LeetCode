@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/ugly-number">263. Ugly Number</a></h2><h3>Easy</h3><hr><p>An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.</p>
