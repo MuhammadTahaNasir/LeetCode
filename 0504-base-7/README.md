@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/base-7">504. Base 7</a></h2><h3>Easy</h3><hr><p>Given an integer num, return a string of its base 7 representation.</p>
