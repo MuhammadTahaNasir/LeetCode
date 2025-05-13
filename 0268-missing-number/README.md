@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/missing-number">268. Missing Number</a></h2><h3>Easy</h3><hr><p>Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing.</p>
