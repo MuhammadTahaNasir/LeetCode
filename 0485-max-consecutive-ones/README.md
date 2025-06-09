@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/max-consecutive-ones">0485. Max Consecutive Ones</a></h2><h3>Easy</h3><hr><p>Given a binary array nums, return the maximum number of consecutive 1s in the array.</p>
