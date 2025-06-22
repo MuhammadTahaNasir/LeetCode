@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/distribute-candies">575. Distribute Candies</a></h2><h3>Easy</h3><hr><p>Alice has n candies, where the ith candy is of type candyType[i]. Return the maximum number of different types of candies she can eat.</p>
