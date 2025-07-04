@@ -9,8 +9,6 @@ Welcome to my personal LeetCode problem-solving archive which is synced using [L
 ## 📈 Live Stats
 
 [![LeetCode Stats](https://leetcard.jacoblin.cool/muhamamadtahanasir?theme=dark&font=Fira+Code&ext=contest)](https://leetcode.com/u/muhamamadtahanasir/)
-- Old Profile
-[![LeetCode Stats](https://leetcard.jacoblin.cool/muhammadtahanasir?theme=dark&font=Fira+Code&ext=contest)](https://leetcode.com/u/muhammadtahanasir/)
 [![GitHub Streak](https://streak-stats.demolab.com/?user=MuhammadTahaNasir&theme=tokyonight)](https://git.io/streak-stats)
 
 ---
