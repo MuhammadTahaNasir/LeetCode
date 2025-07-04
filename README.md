@@ -7,12 +7,17 @@ Welcome to my personal LeetCode problem-solving archive which is synced using [L
 ---
 
 ## 📈 Live Stats
+
+[![LeetCode Stats](https://leetcard.jacoblin.cool/muhamamadtahanasir?theme=dark&font=Fira+Code&ext=contest)](https://leetcode.com/u/muhamamadtahanasir/)
+[![GitHub Streak](https://streak-stats.demolab.com/?user=MuhammadTahaNasir&theme=tokyonight)](https://git.io/streak-stats)
+---
+
+## 🏅 Badges
+
 ![Problems Solved](https://img.shields.io/badge/Solved-50%2B-success?style=for-the-badge&logo=leetcode)
 ![Streak](https://img.shields.io/badge/Streak-4+_Days-orange?style=for-the-badge)
 ![Language](https://img.shields.io/badge/Languages-Python%2C%20C%2B%2B%2C%20JS-blue?style=for-the-badge&logo=code)
-[![LeetCode Stats](https://leetcard.jacoblin.cool/muhamamadtahanasir?theme=dark&font=Fira+Code&ext=contest)](https://leetcode.com/u/muhamamadtahanasir/)
-[![GitHub Streak](https://streak-stats.demolab.com/?user=MuhammadTahaNasir&theme=tokyonight)](https://git.io/streak-stats)
-
+![Focus](https://img.shields.io/badge/Focus-DSA%20%7C%20Contests-important?style=for-the-badge)
 
 ---
 
@@ -53,9 +58,20 @@ Each folder contains `.py`, `.cpp`, or `.js` files named after the LeetCode prob
 
 ---
 
+## 📌 Highlighted Problems
+
+| Topic        | Problem Name                              | Difficulty |
+|--------------|--------------------------------------------|------------|
+| Arrays       | [Two Sum](https://leetcode.com/problems/two-sum/)                  | 🟢 Easy     |
+| Dynamic Prog | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | 🟡 Medium   |
+| Graphs       | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | 🟡 Medium   |
+| Trees        | [Binary Tree Zigzag Level Order](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | 🟠 Hard     |
+
+---
+
 ## 🚧 What's Next?
 
-> 👨‍💻 I’m actively preparing for Software Engineering roles and leveling up through DSA, contests, and real-world systems.
+> 👨‍💻 I’m actively preparing for Software Engineering and AI Engineer roles, leveling up through DSA, contests, and real-world systems.
 
 ---
 
