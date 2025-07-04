@@ -10,6 +10,9 @@ Welcome to my personal LeetCode problem-solving archive which is synced using [L
 
 [![LeetCode Stats](https://leetcard.jacoblin.cool/muhamamadtahanasir?theme=dark&font=Fira+Code&ext=contest)](https://leetcode.com/u/muhamamadtahanasir/)
 [![GitHub Streak](https://streak-stats.demolab.com/?user=MuhammadTahaNasir&theme=tokyonight)](https://git.io/streak-stats)
+![Problems Solved](https://img.shields.io/badge/Solved-300%2B-success?style=for-the-badge&logo=leetcode)
+![Streak](https://img.shields.io/badge/Streak-30+_Days-orange?style=for-the-badge)
+![Language](https://img.shields.io/badge/Languages-Python%2C%20C%2B%2B%2C%20JS-blue?style=for-the-badge&logo=code)
 
 ---
 
