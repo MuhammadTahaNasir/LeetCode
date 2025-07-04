@@ -1,6 +1,6 @@
 # 🧠 Muhammad Taha Nasir's LeetCode Journal
 
-Welcome to my personal LeetCode problem-solving archive — synced using [LeetHub](https://github.com/QasimWani/LeetHub) and organized to reflect consistency, growth, and a deep passion for Data Structures and Algorithms.
+Welcome to my personal LeetCode problem-solving archive which is synced using [LeetHub](https://github.com/QasimWani/LeetHub) and organized to reflect consistency, growth, and a deep passion for Data Structures and Algorithms.
 
 > 🚀 *"Consistency beats talent — every single time."*
 
@@ -9,8 +9,9 @@ Welcome to my personal LeetCode problem-solving archive — synced using [LeetHu
 ## 📈 Live Stats
 
 [![LeetCode Stats](https://leetcard.jacoblin.cool/muhamamadtahanasir?theme=dark&font=Fira+Code&ext=contest)](https://leetcode.com/u/muhamamadtahanasir/)
+- Old Profile
+[![LeetCode Stats](https://leetcard.jacoblin.cool/muhammadtahanasir?theme=dark&font=Fira+Code&ext=contest)](https://leetcode.com/u/muhammadtahanasir/)
 [![GitHub Streak](https://streak-stats.demolab.com/?user=MuhammadTahaNasir&theme=tokyonight)](https://git.io/streak-stats)
-[![LeetCode Stats](https://leetcard.jacoblin.cool/muhamamadtahanasir?theme=dark&font=Fira+Code&ext=contest)](https://leetcode.com/u/muhammadtahanasir/)
 
 ---
 
