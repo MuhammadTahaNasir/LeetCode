@@ -25,8 +25,8 @@ Welcome to my personal LeetCode problem-solving archive which is synced using [L
 
 ## 🎯 Goals & Milestones
 
-- [] 100+ Questions Solved
-- [] Maintain a 30-day LeetCode streak
+- [ ] 100+ Questions Solved
+- [ ] Maintain a 30-day LeetCode streak
 - [ ] Reach Top 10% in Global Rankings
 - [ ] 500+ Problems Solved
 - [ ] Master Trees, Graphs, and DP
