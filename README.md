@@ -1,11 +1,10 @@
 # 🧠 Muhammad Taha Nasir's LeetCode Journal
 
 This repository is a well-organized, auto-synced archive of my LeetCode problem-solving journey, powered by the LeetHub extension.
-
 It reflects my daily commitment to mastering Data Structures & Algorithms — a key step toward Software Engineering excellence, competitive programming proficiency, and technical interview readiness.
 
-🔁 Stats are updated daily via GitHub Actions
-💡 Includes top problems, badges, and personal milestones
+- 🔁 Stats are updated daily via GitHub Actions
+- 💡 Includes top problems, badges, and personal milestones
 
 > 🚀 *"Consistency beats talent — every single time."*
 
