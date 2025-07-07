@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/add-binary">67. Add Binary</a></h2><h3>Easy</h3><hr><p>Given two binary strings a and b, return their sum as a binary string.</p>
