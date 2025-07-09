@@ -2,24 +2,29 @@ class Solution {
 public:
   int maxFreeTime(int eventTime, int k, const vector<int>& startTime, const vector<int>& endTime) {
     int n = startTime.size();
-    int windowSum = 0, maxFree = 0;
+    vector<int> gaps;
+    gaps.reserve(n + 1);
 
-    // Helper lambda to compute the gap at position i
-    auto getGap = [&](int i) -> int {
-      if (i == 0) return startTime[0];  // Before first event
-      if (i == n) return eventTime - endTime.back();  // After last event
-      return startTime[i] - endTime[i - 1];  // Between events
-    };
+    // Compute all gaps in one pass (no branching in critical loop)
+    gaps.push_back(startTime[0]);
+    for (int i = 1; i < n; ++i)
+      gaps.push_back(startTime[i] - endTime[i - 1]);
+    gaps.push_back(eventTime - endTime[n - 1]);
 
-    // Step 1: Initial window sum of size k+1
-    for (int i = 0; i <= k && i <= n; ++i)
-      windowSum += getGap(i);
+    // Sliding window of size k + 1
+    int maxFree = 0, windowSum = 0;
+    int total = gaps.size();
+
+    // Initial window
+    for (int i = 0; i <= k && i < total; ++i)
+      windowSum += gaps[i];
     maxFree = windowSum;
 
-    // Step 2: Slide the window
-    for (int i = k + 1; i <= n; ++i) {
-      windowSum += getGap(i) - getGap(i - k - 1);
-      maxFree = max(maxFree, windowSum);
+    // Slide the window
+    for (int i = k + 1; i < total; ++i) {
+      windowSum += gaps[i] - gaps[i - k - 1];
+      if (windowSum > maxFree)
+        maxFree = windowSum;
     }
 
     return maxFree;
