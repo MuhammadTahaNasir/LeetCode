@@ -1,32 +1,14 @@
 class Solution:
     def maxFreeTime(self, eventTime: int, k: int, startTime: list[int], endTime: list[int]) -> int:
         n = len(startTime)
-        max_free = 0
-        window_sum = 0
+        # Precompute all gaps to eliminate any runtime computation inside hot loop
+        gaps = [startTime[0]]  # Before the first event
+        gaps += [startTime[i] - endTime[i - 1] for i in range(1, n)]  # Between events
+        gaps.append(eventTime - endTime[-1])  # After the last event
 
-        for i in range(n + 1):
-            # Compute gap directly
-            if i == 0:
-                gap = startTime[0]
-            elif i == n:
-                gap = eventTime - endTime[-1]
-            else:
-                gap = startTime[i] - endTime[i - 1]
-
-            window_sum += gap
-
-            if i > k:
-                j = i - k - 1
-                # Remove old gap from window
-                if j == 0:
-                    old_gap = startTime[0]
-                elif j == n:
-                    old_gap = eventTime - endTime[-1]
-                else:
-                    old_gap = startTime[j] - endTime[j - 1]
-                window_sum -= old_gap
-
-            if i >= k:
-                max_free = max(max_free, window_sum)
+        max_free = window_sum = sum(gaps[:k + 1])
+        for i in range(k + 1, len(gaps)):
+            window_sum += gaps[i] - gaps[i - k - 1]
+            max_free = max(max_free, window_sum)
 
         return max_free
