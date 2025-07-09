@@ -1,29 +1,27 @@
 class Solution:
-    def maxFreeTime(self, eventTime: int, k: int, start: list[int], end: list[int]) -> int:
-        n = len(start)
+    def maxFreeTime(self, eventTime: int, k: int, startTime: list[int], endTime: list[int]) -> int:
+        n = len(startTime)
         max_free = 0
         window_sum = 0
 
-        # Inline sliding window without extra gap array
         for i in range(n + 1):
-            # compute current gap
             if i == 0:
-                gap = start[0]
+                gap = startTime[0]
             elif i == n:
-                gap = eventTime - end[-1]
+                gap = eventTime - endTime[-1]
             else:
-                gap = start[i] - end[i - 1]
+                gap = startTime[i] - endTime[i - 1]
 
             window_sum += gap
 
             if i > k:
                 j = i - k - 1
                 if j == 0:
-                    old_gap = start[0]
+                    old_gap = startTime[0]
                 elif j == n:
-                    old_gap = eventTime - end[-1]
+                    old_gap = eventTime - endTime[-1]
                 else:
-                    old_gap = start[j] - end[j - 1]
+                    old_gap = startTime[j] - endTime[j - 1]
                 window_sum -= old_gap
 
             if i >= k:
