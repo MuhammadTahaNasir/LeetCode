@@ -1,19 +1,32 @@
 class Solution:
-    def maxFreeTime(self, eventTime: int, k: int, startTime: list[int], endTime: list[int]) -> int:
-        n = len(startTime)
+    def maxFreeTime(self, eventTime: int, k: int, start: list[int], end: list[int]) -> int:
+        n = len(start)
+        max_free = 0
+        window_sum = 0
 
-        # ✅ Precompute all gaps (fastest access, minimal memory)
-        gaps = [startTime[0]]  # Time before first event
-        for i in range(1, n):
-            gaps.append(startTime[i] - endTime[i - 1])
-        gaps.append(eventTime - endTime[-1])  # Time after last event
+        # Inline sliding window without extra gap array
+        for i in range(n + 1):
+            # compute current gap
+            if i == 0:
+                gap = start[0]
+            elif i == n:
+                gap = eventTime - end[-1]
+            else:
+                gap = start[i] - end[i - 1]
 
-        # ✅ Use a sliding window of size k+1
-        window_sum = sum(gaps[:k + 1])
-        max_free = window_sum
+            window_sum += gap
 
-        for i in range(k + 1, len(gaps)):
-            window_sum += gaps[i] - gaps[i - k - 1]
-            max_free = max(max_free, window_sum)
+            if i > k:
+                j = i - k - 1
+                if j == 0:
+                    old_gap = start[0]
+                elif j == n:
+                    old_gap = eventTime - end[-1]
+                else:
+                    old_gap = start[j] - end[j - 1]
+                window_sum -= old_gap
+
+            if i >= k:
+                max_free = max(max_free, window_sum)
 
         return max_free
