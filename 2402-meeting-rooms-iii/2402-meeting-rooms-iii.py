@@ -2,34 +2,37 @@ import heapq
 
 class Solution:
     def mostBooked(self, n: int, meetings: list[list[int]]) -> int:
+        # In-place sort
         meetings.sort()
         
-        available = list(range(n))  # Free room IDs (min-heap)
-        heapq.heapify(available)
+        # Min-heaps
+        avail = list(range(n))
+        heapq.heapify(avail)
+        busy = []  # (end, room)
         
-        busy = []  # (end_time, room_id)
-        count = [0] * n  # Meeting count per room
-
-        for start, end in meetings:
-            duration = end - start
-
-            # Free up all rooms that are done before this meeting starts
-            while busy and busy[0][0] <= start:
-                heapq.heappush(available, heapq.heappop(busy)[1])
-
-            if available:
-                room = heapq.heappop(available)
-                heapq.heappush(busy, (end, room))
+        count = [0] * n
+        
+        for s, e in meetings:
+            dur = e - s
+            
+            # Free rooms
+            while busy and busy[0][0] <= s:
+                heapq.heappush(avail, heapq.heappop(busy)[1])
+            
+            if avail:
+                r = heapq.heappop(avail)
+                heapq.heappush(busy, (e, r))
             else:
-                earliest_end, room = heapq.heappop(busy)
-                heapq.heappush(busy, (earliest_end + duration, room))
-            count[room] += 1
-
-        # Return the room with the most meetings (break ties by smaller index)
-        max_count = -1
-        best_room = -1
-        for i, c in enumerate(count):
-            if c > max_count:
-                max_count = c
-                best_room = i
-        return best_room
+                end0, r = heapq.heappop(busy)
+                heapq.heappush(busy, (end0 + dur, r))
+            
+            count[r] += 1
+        
+        # Find max index without builtin max+index duo
+        best = 0
+        mc = count[0]
+        for i in range(1, n):
+            if count[i] > mc:
+                mc = count[i]
+                best = i
+        return best
