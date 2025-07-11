@@ -2,37 +2,31 @@ import heapq
 
 class Solution:
     def mostBooked(self, n: int, meetings: list[list[int]]) -> int:
-        # In-place sort
         meetings.sort()
-        
-        # Min-heaps
-        avail = list(range(n))
-        heapq.heapify(avail)
-        busy = []  # (end, room)
-        
-        count = [0] * n
-        
-        for s, e in meetings:
-            dur = e - s
-            
-            # Free rooms
-            while busy and busy[0][0] <= s:
-                heapq.heappush(avail, heapq.heappop(busy)[1])
-            
-            if avail:
-                r = heapq.heappop(avail)
-                heapq.heappush(busy, (e, r))
+
+        count = [0] * n  # Meeting counts
+        free = list(range(n))  # Available room numbers (heap)
+        heapq.heapify(free)
+
+        busy = []  # (end_time, room_id)
+
+        for start, end in meetings:
+            duration = end - start
+
+            # Free up rooms
+            while busy and busy[0][0] <= start:
+                heapq.heappush(free, heapq.heappop(busy)[1])
+
+            if free:
+                room = heapq.heappop(free)
+                heapq.heappush(busy, (end, room))
             else:
-                end0, r = heapq.heappop(busy)
-                heapq.heappush(busy, (end0 + dur, r))
-            
-            count[r] += 1
-        
-        # Find max index without builtin max+index duo
-        best = 0
-        mc = count[0]
-        for i in range(1, n):
-            if count[i] > mc:
-                mc = count[i]
-                best = i
-        return best
+                end_time, room = heapq.heappop(busy)
+                heapq.heappush(busy, (end_time + duration, room))
+            count[room] += 1
+
+        # Find the room with max meetings (lowest index if tie)
+        max_meetings = max(count)
+        for i in range(n):
+            if count[i] == max_meetings:
+                return i
