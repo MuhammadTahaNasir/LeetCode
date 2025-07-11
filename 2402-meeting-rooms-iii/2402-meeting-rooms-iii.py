@@ -1,29 +1,25 @@
-import heapq
-
 class Solution:
-    def mostBooked(self, n: int, meetings: list[list[int]]) -> int:
-        meetings.sort()
-        free = list(range(n))
-        heapq.heapify(free)
-        busy = []  # min‑heap of (end_time, room_id)
-        count = [0] * n
+  def mostBooked(self, n: int, meetings: list[list[int]]) -> int:
+    count = [0] * n
 
-        for s, e in meetings:
-            dur = e - s
-            # Reclaim rooms that have freed up
-            while busy and busy[0][0] <= s:
-                heapq.heappush(free, heapq.heappop(busy)[1])
-            if free:
-                r = heapq.heappop(free)
-                heapq.heappush(busy, (e, r))
-            else:
-                end0, r = heapq.heappop(busy)
-                heapq.heappush(busy, (end0 + dur, r))
-            count[r] += 1
+    meetings.sort()
 
-        # Choose the most-used room (ties broken by lowest index)
-        best = 0
-        for i in range(1, n):
-            if count[i] > count[best]:
-                best = i
-        return best
+    occupied = []  # (endTime, roomId)
+    availableRoomIds = [i for i in range(n)]
+    heapq.heapify(availableRoomIds)
+
+    for start, end in meetings:
+      # Push meetings ending before this `meeting` in occupied to the
+      # `availableRoomsIds`.
+      while occupied and occupied[0][0] <= start:
+        heapq.heappush(availableRoomIds, heapq.heappop(occupied)[1])
+      if availableRoomIds:
+        roomId = heapq.heappop(availableRoomIds)
+        count[roomId] += 1
+        heapq.heappush(occupied, (end, roomId))
+      else:
+        newStart, roomId = heapq.heappop(occupied)
+        count[roomId] += 1
+        heapq.heappush(occupied, (newStart + (end - start), roomId))
+
+    return count.index(max(count))
