@@ -1,45 +1,34 @@
-import functools
+import functools, math
+from typing import List
 
 class Solution:
-    def earliestAndLatest(self, n: int, firstPlayer: int, secondPlayer: int) -> list[int]:
+    def earliestAndLatest(self, n: int, firstPlayer: int, secondPlayer: int) -> List[int]:
         @functools.lru_cache(None)
-        def dp(players: tuple) -> tuple[int, int]:
-            k = len(players)
-            for i in range(k // 2):
-                a, b = players[i], players[-1 - i]
-                if {a, b} == {firstPlayer, secondPlayer}:
-                    return (1, 1)
+        def dp(l: int, r: int, k: int) -> List[int]:
+            # l = position of first player (from front)
+            # r = position of second player (from end)
+            if l == r:
+                return [1, 1]  # They face off now
+            if l > r:
+                return dp(r, l, k)  # normalize ordering
 
-            matchups = []
-            for i in range(k // 2):
-                a, b = players[i], players[-1 - i]
-                if firstPlayer in (a, b):
-                    winner = firstPlayer
-                elif secondPlayer in (a, b):
-                    winner = secondPlayer
-                else:
-                    winner = None
-                matchups.append((a, b, winner))
+            earliest = math.inf
+            latest = -math.inf
 
-            middle = [players[k // 2]] if k % 2 else []
+            half = (k + 1) // 2
+            min_sum = l + r - (k // 2)
+            max_sum = half
 
-            res = []
-            def dfs(i, next_round):
-                if i == len(matchups):
-                    nxt = tuple(sorted(next_round + middle))
-                    res.append(dp(nxt))
-                    return
-                a, b, winner = matchups[i]
-                if winner:
-                    dfs(i + 1, next_round + [winner])
-                else:
-                    dfs(i + 1, next_round + [a])
-                    dfs(i + 1, next_round + [b])
+            for i in range(1, l + 1):
+                for j in range(l - i + 1, r - i + 1):
+                    s = i + j
+                    if not (min_sum <= s <= max_sum):
+                        continue
+                    nxt = dp(i, j, half)
+                    earliest = min(earliest, nxt[0] + 1)
+                    latest = max(latest, nxt[1] + 1)
 
-            dfs(0, [])
-            min_round = min(x for x, _ in res) + 1
-            max_round = max(y for _, y in res) + 1
-            return (min_round, max_round)
+            return [earliest, latest]
 
-        # Start with players 1 to n
-        return list(dp(tuple(range(1, n + 1))))
+        # Convert second player's position from end
+        return dp(firstPlayer, n - secondPlayer + 1, n)
