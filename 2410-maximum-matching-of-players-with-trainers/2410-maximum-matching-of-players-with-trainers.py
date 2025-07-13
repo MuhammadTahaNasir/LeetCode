@@ -1,15 +1,18 @@
 class Solution:
-    def matchPlayersAndTrainers(self, players: list[int], trainers: list[int]) -> int:
-        players.sort()
-        trainers.sort()
+  def matchPlayersAndTrainers(
+      self,
+      players: list[int],
+      trainers: list[int],
+  ) -> int:
+    ans = 0
 
-        i = j = matches = 0
-        n, m = len(players), len(trainers)
+    players.sort()
+    trainers.sort()
 
-        while i < n and j < m:
-            if players[i] <= trainers[j]:
-                matches += 1
-                i += 1
-            j += 1
+    for i, trainer in enumerate(trainers):
+      if players[ans] <= trainer:
+        ans += 1
+        if ans == len(players):
+          return ans
 
-        return matches
+    return ans
