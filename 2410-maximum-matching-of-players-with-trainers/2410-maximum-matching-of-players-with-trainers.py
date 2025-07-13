@@ -2,13 +2,15 @@ class Solution:
     def matchPlayersAndTrainers(self, players, trainers):
         players.sort()
         trainers.sort()
-        i = j = 0
+        players = deque(players)
+        trainers = deque(trainers)
         matches = 0
-        while i < len(players) and j < len(trainers):
-            if players[i] <= trainers[j]:
+
+        while players and trainers:
+            if players[0] <= trainers[0]:
+                players.popleft()
+                trainers.popleft()
                 matches += 1
-                i += 1
-                j += 1
             else:
-                j += 1  # trainer too weak, skip
+                trainers.popleft()  # Trainer too weak
         return matches
