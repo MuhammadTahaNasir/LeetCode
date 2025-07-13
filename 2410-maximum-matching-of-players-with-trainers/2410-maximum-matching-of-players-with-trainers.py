@@ -1,13 +1,14 @@
 class Solution:
-    def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
+    def matchPlayersAndTrainers(self, players, trainers):
         players.sort()
         trainers.sort()
-        i = j = matches = 0
+        i = j = 0
+        matches = 0
         while i < len(players) and j < len(trainers):
             if players[i] <= trainers[j]:
                 matches += 1
                 i += 1
                 j += 1
             else:
-                j += 1
+                j += 1  # trainer too weak, skip
         return matches
