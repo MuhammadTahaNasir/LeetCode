@@ -7,11 +7,14 @@ class Solution:
         has_consonant = False
 
         for ch in word:
-            if not ch.isalnum():
+            # Only letters and digits allowed
+            if not ('0' <= ch <= '9' or 'A' <= ch <= 'Z' or 'a' <= ch <= 'z'):
                 return False
-            if ch.isalpha():
-                c = ch.lower()
-                if c in 'aeiou':
+
+            # Check only if it's a letter
+            if 'A' <= ch <= 'Z' or 'a' <= ch <= 'z':
+                # Convert uppercase vowels manually (no .lower or in lookup)
+                if ch in 'AEIOUaeiou':
                     has_vowel = True
                 else:
                     has_consonant = True
