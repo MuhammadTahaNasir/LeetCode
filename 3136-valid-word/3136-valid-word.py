@@ -3,15 +3,15 @@ class Solution:
         if len(word) < 3:
             return False
 
-        vowels = set('aeiouAEIOU')
         has_vowel = False
         has_consonant = False
 
         for ch in word:
-            if not ch.isalnum():  # check if character is NOT letter or digit
+            if not ch.isalnum():
                 return False
             if ch.isalpha():
-                if ch in vowels:
+                c = ch.lower()
+                if c in 'aeiou':
                     has_vowel = True
                 else:
                     has_consonant = True
