@@ -1,22 +1,39 @@
 class Solution:
     def isValid(self, word: str) -> bool:
-        if len(word) < 3:
+        n = len(word)
+        if n < 3:
             return False
 
-        has_vowel = False
-        has_consonant = False
+        hv = False  # vowel found
+        hc = False  # consonant found
 
         for ch in word:
-            # Only letters and digits allowed
-            if not ('0' <= ch <= '9' or 'A' <= ch <= 'Z' or 'a' <= ch <= 'z'):
-                return False
-
-            # Check only if it's a letter
-            if 'A' <= ch <= 'Z' or 'a' <= ch <= 'z':
-                # Convert uppercase vowels manually (no .lower or in lookup)
-                if ch in 'AEIOUaeiou':
-                    has_vowel = True
+            oc = ord(ch)
+            # digits?
+            if 48 <= oc <= 57:
+                continue
+            # uppercase letters?
+            if 65 <= oc <= 90:
+                offset = oc
+                is_v = ((offset * (offset - 65) * (offset - 69)
+                         * (offset - 73) * (offset - 79) * (offset - 85)) == 0)
+                if is_v:
+                    hv = True
                 else:
-                    has_consonant = True
+                    hc = True
+                continue
+            # lowercase letters?
+            if 97 <= oc <= 122:
+                offset = oc
+                is_v = ((offset * (offset - 97) * (offset - 101)
+                         * (offset - 105) * (offset - 111) * (offset - 117)) == 0)
+                if is_v:
+                    hv = True
+                else:
+                    hc = True
+                continue
 
-        return has_vowel and has_consonant
+            # invalid character
+            return False
+
+        return hv and hc
