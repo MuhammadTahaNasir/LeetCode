@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/valid-anagram">242. Valid Anagram</a></h2><h3>Easy</h3><hr><p>Given two strings s and t, return true if t is an anagram of s, and false otherwise.</p>
