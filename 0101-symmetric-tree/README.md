@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/symmetric-tree">101. Symmetric Tree</a></h2><h3>Easy</h3><hr><p>Given the root of a binary tree, check whether it is a mirror of itself.</p>
