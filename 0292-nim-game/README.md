@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/nim-game">292. Nim Game</a></h2><h3>Easy</h3><hr><p>You are playing the Nim Game with your friend. Return true if you can win the game.</p>
