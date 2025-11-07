@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/binary-search">704. Binary Search</a></h2><h3>Easy</h3><hr><p>Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums.</p>
