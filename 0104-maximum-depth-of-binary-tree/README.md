@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree">104. Maximum Depth of Binary Tree</a></h2><h3>Easy</h3><hr><p>Given the root of a binary tree, return its maximum depth.</p>
