@@ -1,0 +1,1 @@
+<h2><a href="https://leetcode.com/problems/add-digits">258. Add Digits</a></h2><h3>Easy</h3><hr><p>Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.</p>
